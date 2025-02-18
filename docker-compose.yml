@@ -4,11 +4,17 @@ services:
   nginx_server:
     image: nginx:1.27
     container_name: nginx_server
-    # ports:
-    #   - "8080:80"
-    network_mode: "host"
+    ports:
+      - "80:80"
+      - "443:443"
+    # network_mode: "host"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./ssl:/etc/nginx/ssl
       - ./dist:/react-app/dist
- 
+  
+  vaultbox-auth:
+    image: vaultbox-auth
+    container_name: vaultbox-auth
+    ports:
+      - "5000:5000"
