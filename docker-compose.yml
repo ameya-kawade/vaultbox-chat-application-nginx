@@ -13,8 +13,3 @@ services:
       - ./ssl:/etc/nginx/ssl
       - ./dist:/react-app/dist
   
-  vaultbox-auth:
-    image: vaultbox-auth
-    container_name: vaultbox-auth
-    ports:
-      - "5000:5000"
